@@ -1,7 +1,7 @@
 {
-  "name": "Amich UI Cli",
-  "short_name": "Amich UI",
-  "description": "Amich Client for build production",
+  "name": "amich-cli",
+  "short_name": "Amich",
+  "description": "Amich Polymer Client applications builder ",
   "icons": [
     {
       "src": "images/manifest/icon-192x192.png",

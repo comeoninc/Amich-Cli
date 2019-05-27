@@ -1,14 +1,10 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/amich-cli.js",
-  "fragments": [],
+  "shell": "src/my-app.js",
   "sources": [
-    "images/**/*",
-    "index.html",
-    "src/amich-cli.js"
+    "images/**/*"
   ],
   "extraDependencies": [
-    "bower_components/	/*.js",
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/*.js",
     "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
@@ -31,7 +27,6 @@
         "minify": true
       },
       "bundle": true,
-      "addPushManifest": true,
       "addServiceWorker": true
     },
     {
@@ -50,7 +45,6 @@
         "minify": true
       },
       "bundle": true,
-      "addPushManifest": true,
       "addServiceWorker": true
     },
     {
@@ -67,16 +61,14 @@
         "minify": true
       },
       "bundle": true,
-      "addPushManifest": true,
       "addServiceWorker": true
     }
   ],
+  "moduleResolution": "node",
+  "npm": true,
   "lint": {
     "rules": [
       "polymer-3"
     ]
-  },
-  "npm": true,
-  "componentDir": "node_modules/",
-  "moduleResolution": "node"
+  }
 }

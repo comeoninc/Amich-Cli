@@ -9,7 +9,7 @@
   "keywords": [
     "amich"
   ],
-  "homepage": "https://github.com/comeoninc/amich-polymer-cli",
+  "homepage": "https://github.com/comeoninc/Amich-Cli",
   "private": true,
   "ignore": [
     "**/.*",
