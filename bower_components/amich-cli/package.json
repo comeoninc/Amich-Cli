@@ -1,9 +1,14 @@
 {
   "name": "amich-cli",
-  "version": "1.1.0",
-  "description": "Polymer Client and Material package applications builder",
+  "version": "1.0.0",
+  "description": "Amich UI Client package Polymer Material for production build",
   "main": "index.html",
   "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
     "test": "test"
   },
   "repository": {

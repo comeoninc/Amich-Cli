@@ -1,0 +1,14 @@
+{
+  "name": "amich-cli",
+  "homepage": "https://github.com/comeoninc/amich-cli",
+  "_release": "6b4826691f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6b4826691f7c394926efb79a8980bee4aeb8d0ab"
+  },
+  "_source": "https://github.com/comeoninc/amich-cli.git",
+  "_target": "*",
+  "_originalSource": "comeoninc/amich-cli",
+  "_direct": true
+}
