@@ -12,10 +12,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
-	<meta name="generator" content="Amich Cli">
+	<meta name="generator" content="Amich App">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-    <title>Amich Cli</title>
-    <meta name="description" content="Polymer Client and Material package applications builder">
+    <title>Amich Client</title>
+    <meta name="description" content="Amich UI Client for  production build">
     <base href="/">
 	<link rel="canonical" href="">
 
@@ -29,15 +29,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Amich Cli">
+    <meta name="application-name" content="Amich App">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Amich Cli">
+    <meta name="apple-mobile-web-app-title" content="Amich App">
 
     <!-- Homescreen icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/manifest/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="192x192" href="images/manifest/icon-192x192.png">
 
     <!-- Tile icon for Windows 8 (144x144 + tile color) -->
@@ -46,23 +46,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="msapplication-tap-highlight" content="no">
 
     <script>
-      window.MyAppGlobals = { rootPath: '/' };
-
+      window.AppsGlobals = { rootPath: '/' };
       // Load and register pre-caching Service Worker
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('service-worker.js', {
-            scope: MyAppGlobals.rootPath
+            scope: AppsGlobals.rootPath
           });
         });
       }
     </script>
+	<script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+	<script type="module" src="my-element.js"></script>
 
-    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+<script>
+  // Force all polyfills on
+  if (window.customElements) window.customElements.forcePolyfill = true;
+  ShadyDOM = { force: true };
+  ShadyCSS = { shimcssproperties: true};
+</script>
+<script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" defer></script>
 
     <!-- Load your application shell -->
-    <script type="module" src="src/amich-cli.js"></script>
+    <script type="module" src="src/amich-app.js"></script>
+	<script src="https://unpkg.com/@webcomponents/custom-elements"></script>
+	<script src="custom-elements.min.js"></script>
 
     <!-- Add any global styles for body, document, etc. -->
     <style>
@@ -74,14 +82,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-color: #fff;
       }
     </style>
+
+<script type="module">
+const header = document.createElement('header');
+const shadowRoot = header.attachShadow({mode: 'open'});
+shadowRoot.innerHTML = '<h1>Shadow DOM</h1>';
+</script>
   </head>
   <body>
-    <amich-cli></amich-cli>
-	<h1>Amich</h1>
+    <amich-app></amich-app>
     <noscript>
       Please enable JavaScript to view this website.
     </noscript>
     <!-- Built with Polymer Starter Kit -->
+
     <script>
   // hide body to prevent FOUC
   document.body.style.opacity = 0;
@@ -89,6 +103,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // show body now that everything is ready
     document.body.style.opacity = 1;
   });
-</script>
+</script>  
 </body>
 </html>

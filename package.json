@@ -1,31 +1,10 @@
 {
   "name": "amich-cli",
-  "version": "1.1.0",
-  "description": "Polymer Client and Material package applications builder",
-  "main": "index.html",
+  "version": "1.0.0",
+  "description": "Amich UI Client package Polymer Material for production build",
+  "main": "src/amich-app.js",
   "directories": {
     "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/comeoninc/amich-cli.git"
-  },
-  "keywords": [
-    "amich"
-  ],
-  "author": "comeoninc",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/comeoninc/amich-cli/issues"
-  },
-  "homepage": "https://github.com/comeoninc/amich-cli#readme",
-  "scripts": {
-    "start": "polymer serve",
-    "build": "polymer build",
-    "lint": "polymer lint",
-    "test": "test",
-    "tests": "polymer test",
-    "test:integration": "polymer build # test that psk builds without error with the CLI"
   },
   "dependencies": {
     "@polymer/app-layout": "^3.0.0-pre.15",
@@ -43,6 +22,28 @@
     "polymer-cli": "latest",
     "wct-browser-legacy": "latest"
   },
+  "scripts": {
+    "build": "polymer lint && polymer test && polymer build",
+    "start:m": "polymer serve build/esm",
+    "start:5": "polymer serve build/es5",
+    "start:6": "polymer serve build/es6",
+    "start:def": "polymer serve build/default",
+    "start": "polymer serve",
+    "test:integration": "polymer build # test that psk builds without error with the CLI"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comeoninc/amich-cli.git"
+  },
+  "keywords": [
+    "amich"
+  ],
+  "author": "comeoninc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/comeoninc/amich-cli/issues"
+  },
+  "homepage": "https://github.com/comeoninc/amich-cli#readme",
   "engines": {
     "node": ">=8.0"
   }

@@ -1,23 +1,27 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.js",
+  "shell": "src/amich-app.js",
   "sources": [
-    "images/**/*"
+  "data/**/*",
+  "images/**/*",
+  "src/**/*"
   ],
   "extraDependencies": [
-    "manifest.json",
+  "manifest.json",
+    "node_modules/@webcomponentsjs/**",
     "node_modules/@webcomponents/webcomponentsjs/*.js",
     "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
     "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"
   ],
   "builds": [
     {
-      "name": "esm-bundled",
+      "name": "esm",
       "browserCapabilities": [
         "es2015",
         "modules"
       ],
       "js": {
+	"compile": true,
         "minify": true
       },
       "css": {
@@ -27,10 +31,13 @@
         "minify": true
       },
       "bundle": true,
-      "addServiceWorker": true
+      "addPushManifest": true,
+      "addServiceWorker": true,
+      "swPrecacheConfig": "sw-precache-config.js", 
+      "insertPrefetchLinks": true
     },
     {
-      "name": "es6-bundled",
+      "name": "es6",
       "browserCapabilities": [
         "es2015"
       ],
@@ -48,7 +55,7 @@
       "addServiceWorker": true
     },
     {
-      "name": "es5-bundled",
+      "name": "es5",
       "js": {
         "minify": true,
         "compile": true,
