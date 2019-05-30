@@ -2,7 +2,6 @@
   "entrypoint": "index.html",
   "shell": "src/amich-app.js",
   "sources": [
-  "data/**/*",
   "images/**/*",
   "src/**/*"
   ],
@@ -21,7 +20,6 @@
         "modules"
       ],
       "js": {
-	"compile": true,
         "minify": true
       },
       "css": {
@@ -31,10 +29,7 @@
         "minify": true
       },
       "bundle": true,
-      "addPushManifest": true,
-      "addServiceWorker": true,
-      "swPrecacheConfig": "sw-precache-config.js", 
-      "insertPrefetchLinks": true
+      "addServiceWorker": true
     },
     {
       "name": "es6",

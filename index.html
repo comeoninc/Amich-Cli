@@ -7,34 +7,32 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
-	<meta name="generator" content="Amich App">
+	<meta name="generator" content="Amich">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-    <title>Amich Client</title>
-    <meta name="description" content="Amich UI Client for  production build">
+    <title>Amich</title>
+    <meta name="description" content="Amich UI App Polymer for production build">
     <base href="/">
-	<link rel="canonical" href="">
-
+	<link rel="canonical" href="/">
     <link rel="icon" href="images/favicon.ico">
 
     <!-- See https://goo.gl/OOhYW5 -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
 
     <!-- See https://goo.gl/qRE0vM -->
     <meta name="theme-color" content="#08F">
 
     <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Amich App">
+    <meta name="application-name" content="Amich">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Amich App">
+    <meta name="apple-mobile-web-app-title" content="Amich">
 
     <!-- Homescreen icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/manifest/apple-touch-icon.png">
@@ -45,7 +43,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="msapplication-TileColor" content="#08F">
     <meta name="msapplication-tap-highlight" content="no">
 
-    <script>
+<script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" defer></script>
+<script src="node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js" defer></script>
+
+    <!-- Load your application shell -->
+    <script type="module" src="src/amich-app.js"></script>
+    <!-- Add any global styles for body, document, etc. -->
+    <style>
+      body {
+        margin: 0;
+        font-family: "Sarabun","Roboto", sans-serif;
+        line-height: 1.5;
+        min-height: 100vh;
+        background-color: #fcfcfc;
+      }
+    </style>
+  </head>
+  <body>
+    <amich-app></amich-app>    
+    <noscript>
+      Please enable JavaScript to view this website.
+    </noscript>
+    <!-- Built with Polymer Starter Kit -->
+<script>
       window.AppsGlobals = { rootPath: '/' };
       // Load and register pre-caching Service Worker
       if ('serviceWorker' in navigator) {
@@ -55,54 +75,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
       }
-    </script>
-	<script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-	<script type="module" src="my-element.js"></script>
-
-<script>
-  // Force all polyfills on
-  if (window.customElements) window.customElements.forcePolyfill = true;
-  ShadyDOM = { force: true };
-  ShadyCSS = { shimcssproperties: true};
 </script>
-<script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" defer></script>
-
-    <!-- Load your application shell -->
-    <script type="module" src="src/amich-app.js"></script>
-	<script src="https://unpkg.com/@webcomponents/custom-elements"></script>
-	<script src="custom-elements.min.js"></script>
-
-    <!-- Add any global styles for body, document, etc. -->
-    <style>
-      body {
-        margin: 0;
-        font-family: "Roboto", "Noto", sans-serif;
-        line-height: 1.5;
-        min-height: 100vh;
-        background-color: #fff;
-      }
-    </style>
-
-<script type="module">
-const header = document.createElement('header');
-const shadowRoot = header.attachShadow({mode: 'open'});
-shadowRoot.innerHTML = '<h1>Shadow DOM</h1>';
-</script>
-  </head>
-  <body>
-    <amich-app></amich-app>
-    <noscript>
-      Please enable JavaScript to view this website.
-    </noscript>
-    <!-- Built with Polymer Starter Kit -->
-
-    <script>
-  // hide body to prevent FOUC
-  document.body.style.opacity = 0;
-  window.addEventListener('WebComponentsReady', function() {
-    // show body now that everything is ready
-    document.body.style.opacity = 1;
-  });
-</script>  
 </body>
 </html>

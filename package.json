@@ -12,14 +12,14 @@
     "@polymer/iron-flex-layout": "latest",
     "@polymer/iron-iconset-svg": "latest",
     "@polymer/iron-media-query": "latest",
+    "@polymer/iron-meta": "^3.0.1",
     "@polymer/iron-pages": "latest",
     "@polymer/iron-selector": "latest",
-    "@polymer/paper-icon-button": "^3.0.0-pre.15",
     "@polymer/polymer": "latest",
     "@webcomponents/webcomponentsjs": "latest"
   },
   "devDependencies": {
-    "polymer-cli": "latest",
+    "polymer-cli": "^1.9.9",
     "wct-browser-legacy": "latest"
   },
   "scripts": {

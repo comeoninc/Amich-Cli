@@ -7,7 +7,6 @@
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
-
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
@@ -20,7 +19,6 @@ import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
-import '@polymer/paper-icon-button/paper-icon-button.js';
 import './my-icons.js';
 
 // Gesture events like tap and track generated from touch will not be
@@ -30,6 +28,49 @@ setPassiveTouchGestures(true);
 // Set Polymer's root path to the same value we passed to our service worker
 // in `index.html`.
 setRootPath(AppsGlobals.rootPath);
+
+// Define the class for a new element called custom-element
+class DomElement extends PolymerElement {
+
+  static get template () {
+    return html`
+      <p>I'm a DOM element. This is my shadow DOM!</p>
+
+      <!-- TODO: Try adding some other html elements inside the
+           template. For example, add <h1>A heading!</h1> or
+           <a href="stuff.html">A link!</a>
+      -->
+    `;
+  }
+}
+// Register the new element with the browser
+customElements.define('dom-element', DomElement);
+
+class PictureFrame extends PolymerElement {
+  static get template() {
+    return html`
+    <!-- scoped CSS for this element -->
+    <style>
+      div {
+        display: inline-block;
+        background-color: #ccc;
+        border-radius: 8px;
+        padding: 4px;
+      }
+    </style>
+    <!--
+    TODO: Try adding other HTML elements to the DOM template
+    to see how they are positioned relative to the distributed
+    child nodes.
+    -->
+    <div>
+      <!-- any children are rendered here -->
+      <slot></slot>
+    </div>
+    `;
+  }
+}
+customElements.define('picture-frame', PictureFrame);
 
 class Apps extends PolymerElement {
   static get template() {
@@ -88,10 +129,6 @@ class Apps extends PolymerElement {
             </app-toolbar>
           </app-header>
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <my-view1 name="view1"></my-view1>
-            <my-view2 name="view2"></my-view2>
-            <my-view3 name="view3"></my-view3>
-            <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
       </app-drawer-layout>
