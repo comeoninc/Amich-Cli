@@ -19,7 +19,7 @@
     "@webcomponents/webcomponentsjs": "latest"
   },
   "devDependencies": {
-    "polymer-cli": "^1.9.9",
+    "polymer-cli": "^1.9.11",
     "wct-browser-legacy": "latest"
   },
   "scripts": {
